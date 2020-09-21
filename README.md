@@ -10,6 +10,10 @@ certificate with optional additional names.
 It can optionally configure httpd for use with the http-01 challenge used by
 acme-client.
 
+On the first run, this role will run acme-client to fetch and install a
+certificate. It will also install a cronjob in root's crontab to periodically
+renew the certificate as required.
+
 ## Usage
 
 This role is intended to be used as a part of other roles, for example:
