@@ -1,0 +1,3 @@
+---
+hambsd_acme_httpd: false
+hambsd_acme_post_renew_command: "rcctl reload httpd"

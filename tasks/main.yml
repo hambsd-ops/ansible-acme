@@ -1,0 +1,35 @@
+---
+- name: install acme-client.conf
+  template:
+    src: acme-client.conf
+    dest: /etc/acme-client.conf
+    owner: root
+    group: wheel
+    mode: 0644
+- name: configure httpd
+  block:
+  - name: install httpd.conf
+    template:
+      src: httpd.conf
+      dest: /etc/httpd.conf
+      owner: root
+      group: wheel
+      mode: 0644
+    notify: reload httpd
+  - name: ensure httpd is started
+    service:
+      name: httpd
+      state: started
+      enabled: true
+  when: hambsd_acme_httpd == True
+- name: initial acme-client run
+  command: "/usr/sbin/acme-client {{ hambsd_acme_domain }}"
+  args:
+    creates: "/etc/ssl/{{ hambsd_acme_domain }}.crt"
+  notify: acme post-renew
+- name: renew certificates via root crontab
+  cron:
+    name: "acme-client renew"
+    minute: "0"
+    job: "sleep $((RANDOM \\% 2048)) && acme-client {{ hambsd_acme_domain }} && {{ hambsd_acme_post_renew_command }}"
+    user: root
