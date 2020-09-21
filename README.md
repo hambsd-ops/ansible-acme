@@ -47,6 +47,9 @@ In the dependent role's tasks:
 <tr>
 <td>hambsd_acme_httpd</td><td>false</td><td>A boolean value indicating if a minimal httpd configuration should also be installed.</td>
 </tr>
+<tr>
+<td>hambsd_acme_post_renew_command</td><td>rcctl restart httpd</td><td>A command to be run after a successful renewal of the certificate, usually to reload the daemon that uses the certificate.</td>
+</tr>
 </table>
 
 *Variables with † are required.*
