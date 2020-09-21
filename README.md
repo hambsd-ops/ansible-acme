@@ -1,12 +1,12 @@
 # hambsd-acme
 
 An Ansible role to configure acme-client to install a single certificate with
-optional additional names.
+optional alternative names.
 
 ## Overview
 
 This is an Ansible role to configure acme-client to install a single
-certificate with optional additional names.
+certificate with optional alternative names.
 It can optionally configure httpd for use with the http-01 challenge used by
 acme-client.
 
@@ -39,7 +39,7 @@ In the dependent role's tasks:
 <th>Variable</th><th>Default</th><th>Description</th>
 </tr>
 <tr>
-<td>hambsd_acme_additional_names</td><td></td><td>A list of additional names to include in the certificate.</td>
+<td>hambsd_acme_alternative_names</td><td></td><td>A list of alternative names to include in the certificate.</td>
 </tr>
 <tr>
 <td>hambsd_acme_domain †</td><td></td><td>The domain name to use for the primary name in the certificate.</td>
