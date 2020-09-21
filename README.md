@@ -30,11 +30,20 @@ In the dependent role's tasks:
 
 ## Variables
 
-| **Variable** | ** Default ** | **Description** |
-| --- | --- |
-| hambsd_acme_additional_names | | A list of additional names to include in the certificate. |
-| hambsd_acme_domain † | | The domain name to use for the primary name in the certificate. |
-| hambsd_acme_httpd | false | A boolean value indicating if a minimal httpd configuration should also be installed. |
+<table>
+<tr>
+<th>Variable</th><th>Default</th><th>Description</th>
+</tr>
+<tr>
+<td>hambsd_acme_additional_names</td><td></td><td>A list of additional names to include in the certificate.</td>
+</tr>
+<tr>
+<td>hambsd_acme_domain †</td><td></td><td>The domain name to use for the primary name in the certificate.</td>
+</tr>
+<tr>
+<td>hambsd_acme_httpd</td><td>false</td><td>A boolean value indicating if a minimal httpd configuration should also be installed.</td>
+</tr>
+</table>
 
 *Variables with † are required.*
 
